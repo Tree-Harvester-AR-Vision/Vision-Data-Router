@@ -1,0 +1,22 @@
+{
+  "name": "vision-data-router",
+  "version": "1.0.0",
+  "description": "Routes input data from machine-vision component to the AR application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tree-Harvester-AR-Vision/Vision-Data-Router.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tree-Harvester-AR-Vision/Vision-Data-Router/issues"
+  },
+  "homepage": "https://github.com/Tree-Harvester-AR-Vision/Vision-Data-Router#readme",
+  "dependencies": {
+    "ws": "^8.12.0"
+  }
+}

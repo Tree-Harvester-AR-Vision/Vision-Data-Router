@@ -7,6 +7,7 @@ const wss = new WebSocket.Server({ port: port }, () => {
 })
 
 wss.on('connection', function connection(ws) {
+    console.log("connection!")
     ws.on('message', (data) => {
         console.log(`Recieved ${data} from client`)
     })

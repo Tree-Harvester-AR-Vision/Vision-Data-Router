@@ -14,6 +14,7 @@ const wss = new WebSocket.Server({ port: port }, () => {
 wss.on('connection', function connection(ws) {
     console.log("connection!")
     ws.on('message', (data) => {
+        console.log(`Data = ${data}`)
         if (data == 'T') {
             while(true) {
                 let breakSig = false
@@ -22,6 +23,7 @@ wss.on('connection', function connection(ws) {
                         breakSig = true
                     } else {
                         BoundingBoxes = boxData
+                        console.log(`Box = ${BoundingBoxes}`)
                         eventEmitter.emit('New Box Data')
                     }
                 })

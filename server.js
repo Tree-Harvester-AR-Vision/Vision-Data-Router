@@ -16,28 +16,18 @@ wss.on('connection', function connection(ws) {
     ws.on('message', (data) => {
         console.log(`Data = ${data}`)
         if (data == 'T') {
-            while(true) {
-                let breakSig = false
-                ws.on('message', (boxData) => {
-                    if (boxData == 'Connection End') {
-                        breakSig = true
-                    } else {
-                        BoundingBoxes = boxData
-                        console.log(`Box = ${BoundingBoxes}`)
-                        eventEmitter.emit('New Box Data')
-                    }
-                })
-
-                if (breakSig) break
-            }
+            ws.on('message', (boxData) => {
+                BoundingBoxes = boxData
+                console.log(`Box = ${BoundingBoxes}`)
+                eventEmitter.emit('New Box Data')
+            })
         } else if (data == 'R') {
-            while(true) {
-                let breakSig = false
-                let eventHandler = function() {
-                    ws.send(BoundingBoxes)
-                }
-                eventEmitter.on('New Box Data', eventHandler)
+            let breakSig = false
+            let eventHandler = function() {
+                ws.send(BoundingBoxes)
             }
+            
+            eventEmitter.on('New Box Data', eventHandler)
         }
     })
 })

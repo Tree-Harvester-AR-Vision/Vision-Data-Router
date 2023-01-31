@@ -18,6 +18,7 @@ wss.on('connection', function connection(ws) {
             ws.on('message', (boxData) => {
                 BoundingBoxes = boxData
                 eventEmitter.emit('New Box Data')
+                console.log(BoundingBoxes)
             })
         } else if (data == 'R') {
             let breakSig = false

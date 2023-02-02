@@ -1,7 +1,7 @@
 const WebSocket = require('ws')
 const events = require('events')
 
-var port = process.env.PORT || 8000
+var port = process.env.PORT || 7000
 
 var eventEmitter = new events.EventEmitter()
 
@@ -18,10 +18,8 @@ wss.on('connection', function connection(ws) {
             ws.on('message', (boxData) => {
                 BoundingBoxes = boxData
                 eventEmitter.emit('New Box Data')
-                console.log(BoundingBoxes)
             })
         } else if (data == 'R') {
-            let breakSig = false
             let eventHandler = function() {
                 ws.send(BoundingBoxes)
             }

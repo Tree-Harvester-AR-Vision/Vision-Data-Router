@@ -1,4 +1,5 @@
 const WebSocket = require('ws')
+
 const events = require('events')
 const { networkInterfaces } = require('os');
 
@@ -24,6 +25,8 @@ var eventEmitter = new events.EventEmitter()
 var BoundingBoxes
 
 var counter = 0
+
+//Websocket (TCP)
 
 const wss = new WebSocket.Server({ port: port }, () => {
     console.log(`===> Server Started on port ${port}`)
@@ -57,3 +60,4 @@ wss.on('connection', function connection(ws) {
 wss.on('listening', function () {
     console.log(`Listening on port ${port}`)
 })
+

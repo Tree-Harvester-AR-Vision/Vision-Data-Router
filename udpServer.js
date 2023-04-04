@@ -1,7 +1,7 @@
 const dgram = require('node:dgram');
 const server = dgram.createSocket('udp4');
 
-var port = process.env.PORT || 7000
+var port = process.env.PORT || 41234
 
 server.on('error', (err) => {
   console.error(`server error:\n${err.stack}`);
